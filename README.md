@@ -39,6 +39,7 @@ This is a solution to the [Social links profile challenge on Frontend Mentor](ht
 - Usage of clamp() for different screen size
 - Usage of rem
 - Transition color to links
+- Accessibility with links opening a new window (aria-label)
 
 ## Author
 
