@@ -58,7 +58,7 @@ body{
     border-radius: var(--space-150);
     max-width: 25rem;
     min-width: 15rem;
-    width: 25rem;
+    width: 100%;
 }
 .card img{
     height: 5rem;
@@ -79,7 +79,7 @@ body{
     margin-block-end: 1.5rem;
 }
 .card p{
-    font-size: clamp(14px, 1.4vw, 16px);
+    font-size: clamp(0.875rem, 1.4vw, 1rem);
     margin-block-end: clamp(1.5rem, 1.4vw, 2rem);
 }
 nav{
@@ -99,11 +99,23 @@ nav{
     border-radius: 8px;
     font-weight: 600;
     max-width: 100%;
-    font-size: clamp(16px, 1.8vw, 18px);
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
     transition: color 0.5s, background-color 0.5s;
+    /* Disable transitions for users who prefer reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+        transition: none; /* Remove animations to respect user preference */
+    }
 }
 
-.card__links a:hover, .card__links a:focus-visible{
+.card__links a:hover{
+    background-color: var(--green);
+    color: var(--black);
+}
+
+.card__links a:focus-visible {
+    /* Add a clear outline for keyboard focus */
+    outline: 3px solid var(--accent-color);
+    outline-offset: 3px;
     background-color: var(--green);
     color: var(--black);
 }
@@ -112,8 +124,9 @@ footer{
     padding: var(--space-150);
 }
 .attribution { 
-    font-size: clamp(11px, 1vw + 1rem, 16px);
+    font-size: clamp(0.875rem, 1.4vw, 1rem);
     text-align: center; 
+    color: var(--white);
 }
 .attribution a { 
     color: var(--attribution);
@@ -123,7 +136,7 @@ footer a:focus-visible {
     outline-offset: 2px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 37.5em) {
   footer {
     display: none;
   }
